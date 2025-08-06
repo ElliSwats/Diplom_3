@@ -1,4 +1,5 @@
 main_page_url = 'https://stellarburgers.nomoreparties.site/'
+login_url = main_page_url + 'login'
 order_feed_url = main_page_url + 'feed'
 
 expected_text_constr = 'Соберите бургер'

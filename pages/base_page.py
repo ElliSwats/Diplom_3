@@ -12,6 +12,18 @@ class BasePage:
     def click_by_element(self, locator):
         self.driver.find_element(*locator).click()
 
+    @allure.step('Найти элемент и очисnить поле плейсходлера')
+    def find_element_and_clear(self, locator):
+        self.driver.find_element(*locator).clear()
+
+    @allure.step('Найти элемент и вставить значение')
+    def find_element_and_send_keys(self, locator, key):
+        self.driver.find_element(locator).send_keys(key)
+
+    @allure.step('Найти элемент')
+    def find_element(self, locator):
+        self.driver.find_element(*locator)
+
     @allure.step("Ожидание видимости элемента")
     def download_wait_and_find_element(self, locator):
         return WebDriverWait(self.driver, timeout=10).until(ec.presence_of_element_located(locator))
@@ -33,6 +45,10 @@ class BasePage:
     @allure.step('Получение URL')
     def get_url(self):
         return self.driver.current_url
+
+    @allure.step('Перейти на URL')
+    def go_to_url(self, url):
+        return self.driver.get(url)
 
     @allure.step('Перетащить элемент')
     def drag_and_drop_element(self, source, target):
