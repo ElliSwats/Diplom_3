@@ -18,7 +18,7 @@ class BasePage:
 
     @allure.step('Найти элемент и вставить значение')
     def find_element_and_send_keys(self, locator, key):
-        self.driver.find_element(locator).send_keys(key)
+        self.driver.find_element(*locator).send_keys(key)
 
     @allure.step('Найти элемент')
     def find_element(self, locator):
